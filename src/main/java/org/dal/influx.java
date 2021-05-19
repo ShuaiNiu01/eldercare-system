@@ -20,9 +20,7 @@ public class influx {
 
         // https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/#the-basic-select-statement
         QueryResult queryResult = influxDB.query(new Query("SELECT * FROM ruuvi_measurements LIMIT 2"));
-
         System.out.println(queryResult);
-
         influxDB.close();
 
     }
