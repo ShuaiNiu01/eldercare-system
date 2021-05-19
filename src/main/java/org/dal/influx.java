@@ -15,7 +15,7 @@ public class influx {
         final InfluxDB influxDB = InfluxDBFactory.connect(serverURL, username, password);
 
         String databaseName = "eldercare";
-//        influxDB.query(new Query("CREATE DATABASE " + databaseName));
+        // influxDB.query(new Query("CREATE DATABASE " + databaseName));
         influxDB.setDatabase(databaseName);
 
         // https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/#the-basic-select-statement
