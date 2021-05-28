@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
             influxDB.close();
             int sourcesSum1 = 0;
             int sourcesSum2 = 0;
+            Log.i("Sources get:",String.valueOf(queryResult.getResults().get(0).getSeries().get(0).getValues().size()));
             Log.i("Sources get:",String.valueOf(queryResult3.getResults().get(0).getSeries().get(0).getValues().size()));
             Log.i("Sensors get:",String.valueOf(queryResult4.getResults().get(0).getSeries().get(0).getValues().size()));
             for (int i = 0; i < queryResult3.getResults().get(0).getSeries().get(0).getValues().size(); i++) {
@@ -149,12 +150,14 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < queryResult4.getResults().get(0).getSeries().get(0).getValues().size(); i++) {
                 sourcesSum2++;
             }
+            // Show some info in Log
             Log.i("Sources get:",String.valueOf(sourcesSum1));
             Log.i("Sensors get:",String.valueOf(sourcesSum2));
 
             data.putString("sources", String.valueOf(sourcesSum1));
             data.putString("sensors", String.valueOf(sourcesSum2));
             msg.setData(data);
+            //Send message to the handler
             handler.sendMessage(msg);
         }
     };
